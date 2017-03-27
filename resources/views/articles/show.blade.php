@@ -9,6 +9,13 @@
       <div class="panel-body">
         {{ $article->body }}
       </div>
+        <div class="panel-footer">
+            <ul>
+                @foreach ($article->tags as $tag)
+                    <li>{{ $tag->name }}</li>
+                @endforeach
+            </ul>
+        </div>
     </div>
 
       </div>

@@ -14,6 +14,14 @@ use Carbon\Carbon;
 class ArticlesController extends Controller
 {
     /**
+     * ArticlesController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('admin', ['only' => ['create', 'edit']]);
+    }
+
+    /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index ()
@@ -51,7 +59,7 @@ class ArticlesController extends Controller
   public function store(ArticleRequest $request)
   {
     $article = Auth::user()->articles()->create($request->all()); //sets user_id and saves article
-      $article->tags()->attach($request->input('tags')); //set tags on the article.
+      $article->tags()->attach($request->input('tag_list')); //set tags on the article.
     flash('Your article has been published!')->important();
     return redirect('articles');
   }
@@ -63,7 +71,9 @@ class ArticlesController extends Controller
     public function edit($id)
   {
     $article = Article::findOrFail($id);
-    return view('articles.edit', compact('article'));
+
+    $tags = Tag::lists('name', 'id');
+    return view('articles.edit', compact('article', 'tags'));
   }
 
     /**
@@ -76,6 +86,7 @@ class ArticlesController extends Controller
     $article = Article::findOrFail($id);
 
     $article->update($request->all());
+    $article->tags()->sync($request->input('tag_list'));
 
     return redirect('articles');
   }

@@ -24,13 +24,19 @@ Route::resource('roles','RolesController');
   'password' => 'Auth\PasswordController',
 ]);
 
+Route::get('admin', 'AdminController@getIndex');
+Route::get('admin/users/edit/{id}', 'AdminController@editUser');
+Route::patch('admin/users/edit/{id}', 'AdminController@updateUser');
+Route::get('admin/users', 'AdminController@getUsers');
+
+
 Route::get('twitch', function() {
     $json_a = array();
     $string = file_get_contents("https://api.twitch.tv/kraken/streams?game=Android%3A%20Netrunner&client_id=utm11rwc9seas2oi0zi8aks3i9ilqu");
     $json_a = json_decode($string, true);
     dd($json_a);
 });
+
 Route::get('test', ['middleware' => 'admin', function() {
     return 'this page may only be viewed by admins.';
 }]);
-//Route::auth();

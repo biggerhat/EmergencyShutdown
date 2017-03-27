@@ -41,12 +41,19 @@ class User extends Model implements AuthenticatableContract,
     {
       return $this->hasMany('App\Article');
     }
+
     public function roles()
     {
-        return $this->belongsTo('App\Roles');
+        return $this->belongsToMany('App\Role')->withTimestamps();
     }
-    public function isAnAdmin()
+
+    public function getRoleListAttribute()
     {
-        return true;
+        return $this->roles->lists('id')->all();
+    }
+
+    public function hasRole($check)
+    {
+        return in_array($check, array_pluck($this->roles->toArray(), 'name'));
     }
 }
