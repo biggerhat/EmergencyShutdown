@@ -14,3 +14,30 @@ body {
 .navbar {
   border-bottom: 1px solid #000;
 }
+
+a.list-group-item:hover, button.list-group-item:hover, a.list-group-item:focus, button.list-group-item:focus {
+  background-color: #000000;
+}
+
+.pgraph {
+  text-indent: 1.5em;
+}
+
+.hof_profile_header {
+  display: block;
+  padding: 8px;
+  line-height: 40px;
+  background-color: #3d3d3d;
+  color: FFFFFF;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.hof_profile_content {
+  display: block;
+  padding: 8px 8px 8px 15px;
+}
+
+select {
+  color: #000000;
+}

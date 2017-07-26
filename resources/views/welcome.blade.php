@@ -13,6 +13,6 @@
                 </div>
             @endforeach
         </div>
-        @include('partials.cardoftheday')
+
     </div>
 @endsection

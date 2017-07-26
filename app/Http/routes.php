@@ -18,6 +18,7 @@ Route::get('/', 'PagesController@getIndex');
 
 Route::resource('articles', 'ArticlesController');
 Route::resource('roles','RolesController');
+Route::resource('tools','ToolsController');
 
  Route::controllers([
   'auth' => 'Auth\AuthController',
@@ -28,6 +29,33 @@ Route::get('admin', 'AdminController@getIndex');
 Route::get('admin/users/edit/{id}', 'AdminController@editUser');
 Route::patch('admin/users/edit/{id}', 'AdminController@updateUser');
 Route::get('admin/users', 'AdminController@getUsers');
+Route::post('admin/role', 'AdminController@storeRole');
+Route::get('admin/role','AdminController@createRole');
+
+Route::get('hof', 'HofController@getIndex');
+Route::get('hof/nominees', 'HofController@getNominees');
+Route::get('hof/members', 'HofController@getMembers');
+Route::get('hof/vote', 'HofController@getVote');
+Route::post('hof/vote', 'HofController@submitVote');
+Route::get('hof/admin','HofController@getAdmin');
+Route::get('hof/pub_results', 'HofController@getPublicResults');
+Route::get('hof/edit_ballot/{id}', 'HofController@editBallot');
+Route::get('hof/edit_ballot_list', 'HofController@getBallotList');
+Route::patch('hof/update_ballot/{id}', 'HofController@updateBallot');
+Route::get('hof/edit_nominee/{id}', 'HofController@editNominee');
+Route::get('hof/edit_nominee_list', 'HofController@getNomineeList');
+Route::patch('hof/update_nominee/{id}', 'HofController@updateNominee');
+Route::post('hof/create_committee_key', 'HofController@createCommitteeKey');
+Route::get('hof/create_committee_key', 'HofController@getCreateCommitteeKey');
+Route::get('hof/comm_list', 'HofController@getCommitteeList');
+Route::post('hof/create_ballot', 'HofController@storeBallot');
+Route::get('hof/create_ballot', 'HofController@createBallot');
+Route::post('hof/create_nominee', 'HofController@storeNominee');
+Route::get('hof/create_nominee', 'HofController@createNominee');
+Route::get('hof/profile/{id}', 'HofController@getProfile');
+Route::post('hof/comm_vote', 'HofController@submitCommVote');
+Route::get('hof/comm_vote','HofController@getCommVote');
+Route::get('hof/comm_results','HofController@getCommResults');
 
 
 Route::get('twitch', function() {
@@ -37,6 +65,6 @@ Route::get('twitch', function() {
     dd($json_a);
 });
 
-Route::get('test', ['middleware' => 'admin', function() {
-    return 'this page may only be viewed by admins.';
-}]);
+Route::get('test', function() {
+    return Request::ip();
+});

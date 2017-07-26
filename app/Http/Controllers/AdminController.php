@@ -61,4 +61,16 @@ class AdminController extends Controller
         flash()->success($request->input('username') . ' has been updated successfully.');
         return redirect('admin/users');
     }
+
+    public function createRole()
+    {
+        return view('admin/create_role');
+    }
+
+    public function storeRole(Request $request)
+    {
+        $role = new Role;
+        $role::create($request->all());
+        return redirect('admin');
+    }
 }

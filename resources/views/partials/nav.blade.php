@@ -14,25 +14,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">Articles <span class="caret"></span></a>
-                    <ul class="dropdown-menu" aria-labelledby="themes">
-                        <li><a href="/articles">All Articles</a></li>
-                        <li class="divider"></li>
-                        <li><a href="/articles/create">Create an Article</a></li>
-                    </ul>
-                </li>
-                <li><a href="/about">Tools</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">Resources <span class="caret"></span></a>
-                    <ul class="dropdown-menu" aria-labelledby="themes">
-                        <li><a href="../default/">Default</a></li>
-                        <li><a href="../cerulean/">Cerulean</a></li>
-                        <li><a href="../cosmo/">Cosmo</a></li>
-                        <li><a href="../cyborg/">Cyborg</a></li>
-                    </ul>
-                </li>
-                <li><a href="../help/">Calendar</a></li>
+                <li><a href="/articles">Articles</a></li>
+                <li><a href="/tools">Tools</a></li>
+                <li><a href="/hof">Hall of Fame</a></li>
                 <li><a href="/about">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

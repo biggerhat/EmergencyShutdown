@@ -4,15 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Nominee extends Model
 {
+    //
     protected $fillable = [
         'name',
+        'alias',
+        'standings',
         'description'
     ];
 
-    public function users()
+    public function ballots()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\Ballot');
     }
 }
