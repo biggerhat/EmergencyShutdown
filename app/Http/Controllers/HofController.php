@@ -37,7 +37,8 @@ class HofController extends Controller
             'getNomineeList',
             'getBallotList',
             'getAdmin',
-            'getCommResults']]);
+            'getCommResults',
+            'getPublicResults']]);
     }
 
 
@@ -122,11 +123,11 @@ class HofController extends Controller
             }
             else {
 
-                return $this->getPublicResults();
+                return redirect('hof/');
             }
 
             flash()->success('Thank you for voting!');
-            return redirect('hof/pub_results');
+            return redirect('hof/');
         }
     }
 
@@ -228,7 +229,7 @@ class HofController extends Controller
             $counts['nominees'][$n]['percent'] = round((($count/$counts['total'])*100),2);
             $n++;
         }
-        return view('hof.public_results', compact('counts'));
+        return view('hof.comm_results', compact('counts'));
 
     }
 
@@ -378,7 +379,7 @@ class HofController extends Controller
 
     public function getNomineeList()
     {
-        $nominees = Nominee::where('member','=','0')->orderBy('name')->get();
+        $nominees = Nominee::where('member','=','0')->orderBy('name')->paginate(10);
         return view('hof/nominee_list',compact('nominees'));
     }
 

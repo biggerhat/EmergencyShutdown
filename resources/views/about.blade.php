@@ -7,7 +7,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">About EmergencyShutdown.Net</div>
-                <div class="panel-body">This is about the site.</div>
+                <div class="panel-body">EmergencyShutdown.Net is a site dedicated to Tools and Resources for the betterment of the Netrunner community. </div>
             </div>
             <div class="panel panel-primary">
                 <div class="panel-heading">Disclaimer</div>

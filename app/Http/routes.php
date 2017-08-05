@@ -20,7 +20,7 @@ Route::resource('articles', 'ArticlesController');
 Route::resource('roles','RolesController');
 Route::resource('tools','ToolsController');
 
- Route::controllers([
+Route::controllers([
   'auth' => 'Auth\AuthController',
   'password' => 'Auth\PasswordController',
 ]);
@@ -57,6 +57,7 @@ Route::post('hof/comm_vote', 'HofController@submitCommVote');
 Route::get('hof/comm_vote','HofController@getCommVote');
 Route::get('hof/comm_results','HofController@getCommResults');
 
+Route::get('api/deckname','ApiController@getDeckname');
 
 Route::get('twitch', function() {
     $json_a = array();

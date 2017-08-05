@@ -27,9 +27,6 @@
                     <div class="hof_profile_header">
                         If you are a voting committee member, please go <a href="/hof/comm_vote">here</a> to submit your official vote.
                     </div>
-                    <div class="text-center hof_profile_content">
-                        <a href="/hof/pub_results">View Results</a>
-                    </div>
                 </div>
             </div>
         </div>

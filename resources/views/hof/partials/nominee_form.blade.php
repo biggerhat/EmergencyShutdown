@@ -14,6 +14,12 @@
     {!! Form::label('description','Nomination/Reason:') !!}
     {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
 </div>
+<div class="form-group">
+    {!! Form::label('member', 'Inducted Member:') !!}
+    {!! Form::select('member', [
+        '0' => 'No',
+        '1' => 'Yes']) !!}
+</div>
 <div class="form-group text-right">
     {!! Form::submit($submitButtonText,['class' => 'btn btn-primary form control']) !!}
 </div>

@@ -11,7 +11,8 @@ class Nominee extends Model
         'name',
         'alias',
         'standings',
-        'description'
+        'description',
+        'member',
     ];
 
     public function ballots()

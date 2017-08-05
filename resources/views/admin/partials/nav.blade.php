@@ -25,4 +25,5 @@
         <a class="list-group-item" href="/hof/create_committee_key">Make Committee Key</a>
         <a class="list-group-item" href="/hof/comm_list">View Current Keys</a>
         <a class="list-group-item" href="/hof/comm_results">View Committee Results</a>
+        <a class="list-group-item" href="/hof/pub_results">View Public Results</a>
     </div>

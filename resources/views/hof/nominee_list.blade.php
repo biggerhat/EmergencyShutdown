@@ -29,4 +29,7 @@
             </div>
         </div>
     </div>
+    <div class="text-right">
+        {{ $nominees->links() }}
+    </div>
 @endsection

@@ -1,13 +1,13 @@
 @extends('admin.main')
 @section('title')
-    - Android: Netrunner Hall of Fame - Public Voting Results
+    - Android: Netrunner Hall of Fame - Committee Voting Results
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-md-9">
             <div class="panel panel-primary">
-                <div class="panel-heading">Public Voting Results</div>
+                <div class="panel-heading">Committee Voting Results</div>
                 <div class="panel-body">
                     @include('errors.list')
                     <div class="hof_profile_header">Total Votes: {!! $counts['total'] !!}

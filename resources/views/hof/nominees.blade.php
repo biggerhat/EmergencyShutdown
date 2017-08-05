@@ -8,7 +8,7 @@
         <div class="col-md-3">
             @include('hof.partials.nav')
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 col-sm-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">{{ $ballot->name }}</div>
                 <div class="panel-body">

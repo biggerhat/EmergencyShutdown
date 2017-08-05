@@ -3,7 +3,7 @@
 @section('content')
     <div class="panel panel-primary">
         <div class="panel-heading">Edit Users</div>
-        <div class="panel-body">
+        <div class="panel-body table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>

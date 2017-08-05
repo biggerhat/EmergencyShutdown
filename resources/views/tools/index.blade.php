@@ -16,7 +16,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">{{ $tool->name }}</div>
                     <div class="panel-body">
-                        {!! $tool->description !!}
+                        {!!  nl2br(e($tool->description)) !!}
 
                         @if ($tool->url == "")
                             <p class="text-right"><a class="btn btn-primary" role="button">Coming Soon!</a></p>
