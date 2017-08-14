@@ -12,11 +12,11 @@
         <div class="col-md-9">
 
             @foreach ($tools as $tool)
-                <a name="{{ $tool->id }}"> </a>
+                <a name="{{ $tool->id }}" class="anchor"> </a>
                 <div class="panel panel-primary">
                     <div class="panel-heading">{{ $tool->name }}</div>
                     <div class="panel-body">
-                        {!!  nl2br(e($tool->description)) !!}
+                        <p>{!!  nl2br(e($tool->description)) !!}</p>
 
                         @if ($tool->url == "")
                             <p class="text-right"><a class="btn btn-primary" role="button">Coming Soon!</a></p>

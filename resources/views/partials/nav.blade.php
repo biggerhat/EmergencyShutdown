@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img src="/images/logosmall.png"></a>
+            <a class="navbar-brand" href="/"><img src="/images/logosmall.png" class="img-responsive"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,6 +17,9 @@
                 <li><a href="/articles">Articles</a></li>
                 <li><a href="/tools">Tools</a></li>
                 <li><a href="/hof">Hall of Fame</a></li>
+                @if ($stream_live != 0)
+                    <li><a href="/streams">Streams <span class="badge">{{ $stream_live }}</span></a></li>
+                @endif
                 <li><a href="/about">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

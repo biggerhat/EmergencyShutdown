@@ -23,7 +23,7 @@ class ToolsController extends Controller
     /**
      * Display the deck name generator.
      */
-    public function deckname()
+    public function getDeckname()
     {
         return view('tools.deckname');
     }

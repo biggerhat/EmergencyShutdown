@@ -8,6 +8,8 @@ use App\Nominee;
 use App\Voter;
 use App\Vote;
 use App\CommitteeKey;
+use App\HofNews;
+use Auth;
 use App\Http\Requests;
 use Illuminate\Pagination\Paginator;
 
@@ -31,6 +33,10 @@ class HofController extends Controller
             'storeNominee',
             'editNominee',
             'updateNominee',
+            'createNews',
+            'editNews',
+            'storeNews',
+            'updateNews',
             'createCommitteeKey',
             'getCreateCommitteeKey',
             'getCommitteeList',
@@ -47,7 +53,14 @@ class HofController extends Controller
      */
     public function getIndex()
     {
-        return view('hof.index');
+        $news = HofNews::latest('id')->paginate(5);
+        return view('hof.index', compact('news'));
+    }
+
+    public function getAbout()
+    {
+
+        return view('hof.about');
     }
 
     public function getMembers()
@@ -304,6 +317,19 @@ class HofController extends Controller
         return view('hof.create_nominee');
     }
 
+    public function createNews()
+    {
+        return view('hof.create_news');
+    }
+
+    public function storeNews(request $request)
+    {
+        //$news = new HofNews;
+        $news = Auth::user()->hof_news()->create($request->all());
+        flash('Your news has been posted!')->important();
+        return redirect('/hof/admin');
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -329,6 +355,13 @@ class HofController extends Controller
 
     }
 
+    public function editNews($id)
+    {
+        $news = HofNews::findorFail($id);
+
+        return view('hof.edit_news', compact('news'));
+    }
+
     /**
      * @param $id
      * @param Request $request
@@ -342,6 +375,15 @@ class HofController extends Controller
         flash()->success($request->name . ' has been updated successfully.');
         return redirect('/hof/admin');
 
+    }
+
+    public function updateNews($id, request $request)
+    {
+        $news = HofNews::findorFail($id);
+        $news->update($request->all());
+
+        flash()->success('News has been updated successfully.');
+        return redirect('/hof/admin');
     }
 
     public function createCommitteeKey(Request $request)
@@ -381,6 +423,12 @@ class HofController extends Controller
     {
         $nominees = Nominee::where('member','=','0')->orderBy('name')->paginate(10);
         return view('hof/nominee_list',compact('nominees'));
+    }
+
+    public function getNewsList()
+    {
+        $news = HofNews::latest('id')->paginate(5);
+        return view('hof/news_list',compact('news'));
     }
 
     public function getBallotList()

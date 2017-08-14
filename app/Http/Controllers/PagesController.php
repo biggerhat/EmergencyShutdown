@@ -30,18 +30,14 @@ class PagesController extends Controller
 
     public function getAbout()
     {
-      $first = "Mark";
-      $last = "Czirr";
-      $fullname = $first . " " . $last;
-      $email = "blah@blah.com";
-      $data = [];
+      return view('about');
+    }
 
-      $data['email'] = $email;
-      $data['fullname'] = $fullname;
-
-
-      //Return the About page
-      return view('about')->withData($data);
+    public function getStreams()
+    {
+        $string = file_get_contents("https://api.twitch.tv/kraken/streams?game=Android%3A%20Netrunner&client_id=utm11rwc9seas2oi0zi8aks3i9ilqu");
+        $streams = json_decode($string, true);
+        return view('streams', compact('streams'));
     }
 
     /**

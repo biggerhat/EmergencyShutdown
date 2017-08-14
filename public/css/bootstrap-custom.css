@@ -69,3 +69,14 @@ a.list-group-item:hover, button.list-group-item:hover, a.list-group-item:focus, 
 select {
   color: #000000;
 }
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -70px;
+  visibility: hidden;
+}
+
+img.onr_img {
+  border-radius: 4px;
+}

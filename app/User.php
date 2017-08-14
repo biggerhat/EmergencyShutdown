@@ -42,6 +42,11 @@ class User extends Model implements AuthenticatableContract,
       return $this->hasMany('App\Article');
     }
 
+    public function hof_news()
+    {
+        return $this->hasMany('App\HofNews');
+    }
+
     public function roles()
     {
         return $this->belongsToMany('App\Role')->withTimestamps();

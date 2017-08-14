@@ -18,6 +18,8 @@
     </div>
     Hall of Fame
     <div class="list-group" style="margin: 15px;">
+        <a class="list-group-item" href="/hof/create_news">Create News</a>
+        <a class="list-group-item" href="/hof/edit_news_list">Edit News</a>
         <a class="list-group-item" href="/hof/create_nominee">Create Nominee</a>
         <a class="list-group-item" href="/hof/edit_nominee_list">Edit Nominees</a>
         <a class="list-group-item" href="/hof/create_ballot">Create Ballot</a>
