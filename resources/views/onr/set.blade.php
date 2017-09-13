@@ -45,7 +45,7 @@
                                 @endif
                                 @if($card['diff'] != '')
                                     <label for="title">Difficulty: </label>
-                                    <span id="title" style="color: #0ce3ac">{!! $card['difficulty'] !!}</span>
+                                    <span id="title" style="color: #0ce3ac">{!! $card['diff'] !!}</span>
                                 @endif
                                 @if($card['agenda'] != '')
                                     <label for="title">Agenda Points: </label>

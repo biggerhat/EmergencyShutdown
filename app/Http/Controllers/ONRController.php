@@ -11,6 +11,15 @@ use Input;
 
 class ONRController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin', ['only' => [
+            'createCard',
+            'editCard',
+            'updateCard',
+            'storeCard']]);
+    }
+
     public function getIndex()
     {
         $cards = OnrCard::orderBy('title')->get();
@@ -141,6 +150,19 @@ class ONRController extends Controller
         {
             $cards = OnrCard::where('set','=',$set)->orderBy('title')->get();
             return view('onr.set',compact('cards'));
+        }
+    }
+
+    public function getImages($set)
+    {
+        $count = OnrCard::where('set','=',$set)->orderBy('title')->count();
+        if($count == '0')
+        {
+            abort(404);
+        } else
+        {
+            $cards = OnrCard::where('set','=',$set)->orderBy('title')->get();
+            return view('onr.set_images',compact('cards'));
         }
     }
 }

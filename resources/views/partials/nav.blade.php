@@ -14,9 +14,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/articles">Articles</a></li>
+                <!-- <li><a href="/articles">Articles</a></li> -->
                 <li><a href="/tools">Tools</a></li>
                 <li><a href="/hof">Hall of Fame</a></li>
+                <li><a href="/kos">King of Servers</a></li>
                 @if ($stream_live != 0)
                     <li><a href="/streams">Streams <span class="badge">{{ $stream_live }}</span></a></li>
                 @endif

@@ -70,7 +70,30 @@ Route::get('hof/comm_vote','HofController@getCommVote');
 Route::get('hof/comm_results','HofController@getCommResults');
 //End Hall of Fame
 
+//KOS
+Route::get('kos', 'KosController@getIndex');
+Route::post('kos/spags','KosController@setRegistrationToggle');
+Route::get('kos/spags','KosController@getRegistrationToggle');
+Route::post('kos/free_agents/add/{id}', 'KosController@storeAddFreeAgent');
+Route::get('kos/free_agents/add/{id}', 'KosController@getAddFreeAgent');
+Route::get('kos/free_agents', 'KosController@getFreeAgents');
+Route::get('kos/teams/{id}/remove_player/{player_id}', 'KosController@deletePlayer');
+Route::patch('kos/teams/{id}', 'KosController@updateTeam');
+Route::get('kos/teams/{id}', 'KosController@getTeamEdit');
+Route::post('kos/teams/{id}/login', 'KosController@logTeamIn');
+Route::get('kos/teams/{id}/login', 'KosController@getTeamLogin');
+Route::post('kos/teams/{id}/add_player','KosController@storeTeamAddPlayer');
+Route::get('kos/teams/{id}/add_player','KosController@getTeamAddPlayer');
+Route::get('kos/teams','KosController@getTeams');
+Route::post('kos/register/free_agent', 'KosController@storeFreeAgent');
+Route::get('kos/register/free_agent','KosController@getRegPlayer');
+Route::post('kos/register/team','KosController@storeTeam');
+Route::get('kos/register/team','KosController@getRegTeam');
+Route::get('kos/register','KosController@getRegHome');
+
+
 //ONR Content
+Route::get('webminster/sets/{set}/images', 'ONRController@getImages');
 Route::get('webminster/sets/{set}','ONRController@getSet');
 Route::get('webminster/sets','ONRController@getSets');
 Route::get('webminster/cards/{id}', 'ONRController@getCard');
