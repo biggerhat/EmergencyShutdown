@@ -13,7 +13,7 @@
                 <div class="panel-heading">{{ $ballot->name }} - Committee Vote</div>
                 <div class="panel-body">
                     @include('errors.list')
-                    <div class="hof_profile_header">Please choose up to 12 nominees to vote for and submit your vote!</div>
+                    <div class="hof_profile_header">Please choose up to 6 nominees to vote for and submit your vote!</div>
                     {!! Form::open(['url' => 'hof/comm_vote']) !!}
                     <div class="row">
                         @foreach ($ballot->nominees as $nominee)

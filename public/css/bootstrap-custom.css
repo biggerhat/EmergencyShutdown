@@ -26,9 +26,54 @@
   }
 }
 
+/*
+body {
+
+  margin-top: 70px;
+}
+*/
+
+.main-contain {
+  margin-top: 70px;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
   background-image: url("../images/dark_wall.png");
-  margin-top: 70px;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #375a7f;
+  border-top: 1px solid #000000;
+}
+
+.foot {
+  padding: 0px;
+  margin: 0px;
+  line-height: 58px;
+}
+
+.foot-nav a {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.foot a {
+  color: #ffffff;
+  display: inline-block;
+}
+
+.foot a:hover {
+  color: #0ce3ac;
+  text-decoration: none;
 }
 
 .cardoftheday {
@@ -84,3 +129,4 @@ img.onr_img {
 span.info {
   color: #0ce3ac;
 }
+

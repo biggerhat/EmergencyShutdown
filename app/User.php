@@ -42,6 +42,11 @@ class User extends Model implements AuthenticatableContract,
       return $this->hasMany('App\Article');
     }
 
+    public function fdraftteams()
+    {
+        return $this->hasMany('App\FdraftTeam');
+    }
+
     public function hof_news()
     {
         return $this->hasMany('App\HofNews');

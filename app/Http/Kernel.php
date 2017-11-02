@@ -31,5 +31,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'admin' => \App\Http\Middleware\RedirectIfNotAnAdmin::class,
         'hofadmin' => \App\Http\Middleware\RedirectIfNotHoFAdmin::class,
+        'fdraftadmin' => \App\Http\Middleware\RedirectIfNotFdraftAdmin::class,
     ];
 }

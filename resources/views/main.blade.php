@@ -23,11 +23,19 @@
   </head>
   <body>
       @include('partials.nav')
-    <div class="container">
+    <div class="container main-contain">
       @include('flash::message')
 
       @yield('content')
     </div>
+
+  </div>
+
+      <footer class="footer">
+        <div class="container navbar-default">
+          <p class="foot foot-nav"><a href="/about">About</a><a href="http://www.patreon.com/emergencyshutdown" target="neww">Donate</a><a href="https://twitter.com/emrgncyshutdown" target="_twitter">Twitter</a></p>
+        </div>
+      </footer>
 
 
 

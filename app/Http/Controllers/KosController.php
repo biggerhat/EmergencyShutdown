@@ -17,6 +17,8 @@ class KosController extends Controller
     {
         $this->middleware('hofadmin', ['only' => ['getRegistrationToggle',
             'setRegistrationToggle',
+            'getPasswordReset',
+            'storePasswordReset'
             ]]);
     }
 
@@ -274,5 +276,62 @@ class KosController extends Controller
             ->update(['status' => $status['toggle']]);
         flash('Done.');
         return view('kos.regtoggle');
+    }
+
+    public function getPasswordReset()
+    {
+        $teamlist = KosTeam::lists('name','id');
+        return view('kos.passwordreset', compact('teamlist'));
+    }
+
+    public function storePasswordReset(request $request)
+    {
+        $team = KosTeam::findorFail($request['team']);
+        $team['password'] = bcrypt($request['team_password']);
+        $team->update();
+        flash('Team Password Updated');
+        return redirect('kos/password');
+
+
+
+    }
+
+    public function getCSV()
+    {
+        header("Content-Type:application/csv");
+        header("Content-Disposition:attachment;filename=kos.csv");
+        $data = KosTeam::with('players')->get();
+        $data = $data->toArray();
+        //return $data;
+        $teams['count'] = KosTeam::count();
+
+        # Generate CSV data from array
+        $fh = fopen('php://temp', 'rw'); # don't create a file, attempt
+        # to use memory instead
+
+        # write out the headers
+        fputcsv($fh, array('Team Name','Player 1','Player 2','Player 3','Player 4'));
+
+
+        # write out the data
+        foreach ( $data as $row ) {
+            $row_contents['name'] = $row['name'];
+            $i = 1;
+            foreach($row['players'] as $player)
+            {
+                $row_contents['player'.$i] = $player['name'] . ' (' . $player['aka'] . ')';
+                $i++;
+            }
+            fputcsv($fh, $row_contents);
+            for($i=1;$i<5;$i++)
+            {
+                $row_contents['player'.$i] = '';
+            }
+        }
+        rewind($fh);
+        $csv = stream_get_contents($fh);
+        fclose($fh);
+
+        return $csv;
     }
 }

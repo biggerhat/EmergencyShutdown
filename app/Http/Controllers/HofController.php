@@ -116,8 +116,8 @@ class HofController extends Controller
         $votes['ballot'] = $ballot->id;
         if($count == 0) {
             return $this->getVote();
-        } else if ($count > 12) {
-            flash('You cannot vote for more than 12 nominees.')->important();
+        } else if ($count > 6) {
+            flash('You cannot vote for more than 6 nominees.')->important();
             return redirect('hof/vote');
         } else {
             $ipcheck = Voter::where('ballot','=',$ballot->id)->where('voter_ip','=',$votes['voter_ip'])->count();
@@ -165,8 +165,8 @@ class HofController extends Controller
         $votes['ballot'] = $ballot->id;
         if($count == 0) {
             return redirect('hof.comm_vote');
-        } else if ($count > 12) {
-            flash('You cannot vote for more than 12 nominees.')->important();
+        } else if ($count > 6) {
+            flash('You cannot vote for more than 6 nominees.')->important();
             return redirect('hof/comm_vote');
         } else {
             $commcheck = Voter::where('ballot', '=', $ballot->id)->where('committee_id', '=', $votes['committee_id'])->count();

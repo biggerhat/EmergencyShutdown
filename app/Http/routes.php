@@ -90,6 +90,41 @@ Route::get('kos/register/free_agent','KosController@getRegPlayer');
 Route::post('kos/register/team','KosController@storeTeam');
 Route::get('kos/register/team','KosController@getRegTeam');
 Route::get('kos/register','KosController@getRegHome');
+Route::patch('kos/password','KosController@storePasswordReset');
+Route::get('kos/password','KosController@getPasswordReset');
+Route::get('kos/csv','KosController@getCSV');
+
+//Fantasy Drafting
+Route::get('fantasy','FanDraftController@getIndex');
+Route::post('fantasy/create_draft','FanDraftController@storeDraft');
+Route::get('fantasy/create_draft','FanDraftController@createDraft');
+Route::patch('fantasy/edit_draft/{id}','FanDraftController@updateDraft');
+Route::get('fantasy/edit_draft/{id}','FanDraftController@editDraft');
+Route::get('fantasy/players','FanDraftController@getPlayers');
+Route::patch('fantasy/my_draft','FanDraftController@updateTeam');
+Route::post('fantasy/my_draft','FanDraftController@storeTeam');
+Route::get('fantasy/my_draft','FanDraftController@getTeam');
+Route::post('fantasy/create_player','FanDraftController@storePlayer');
+Route::get('fantasy/create_player','FanDraftController@createPlayer');
+Route::patch('fantasy/edit_player/{id}','FanDraftController@updatePlayer');
+Route::get('fantasy/edit_player/{id}','FanDraftController@editPlayer');
+Route::get('fantasy/competition','FanDraftController@getTeams');
+Route::get('fantasy/profile/{id}','FanDraftController@getProfile');
+Route::get('fantasy/writein/approve','FanDraftController@approveWritein');
+Route::post('fantasy/writein','FanDraftController@storeWritein');
+Route::get('fantasy/writein','FanDraftController@addWritein');
+Route::get('fantasy/edit_players','FanDraftController@getAdminPlayers');
+Route::get('fantasy/admin','FanDraftController@getAdmin');
+Route::get('fantasy/curr_draft','FanDraftController@getCurrent');
+Route::get('fantasy/stats','FanDraftController@getStats');
+Route::get('fantasy/admin_teams','FanDraftController@getAdminTeams');
+Route::get('fantasy/make_elite/{id}','FanDraftController@makeElite');
+Route::get('fantasy/undo_elite/{id}','FanDraftController@undoElite');
+Route::get('fantasy/elite','FanDraftController@getElite');
+Route::get('fantasy/admin_elite','FanDraftController@getAdminElite');
+Route::post('fantasy/admin_add_team','FanDraftController@storeAdminAddTeam');
+Route::get('fantasy/admin_add_team','FanDraftController@getAdminAddTeam');
+
 
 
 //ONR Content
