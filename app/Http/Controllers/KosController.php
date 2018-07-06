@@ -40,11 +40,11 @@ class KosController extends Controller
         $status = DB::table('statuses')->where('service', '=', 'kos_registration')->first();
         if($status->status == '0')
         {
-            return 'Registration is Currently Closed, Please Check Back Monday, September 11th at 11AM CST';
+            return 'Registration is Currently Closed, Please Check Back Tuesday, July 3rd at 11AM CST';
         }
-        if($team_count >= 40)
+        if($team_count >= 56)
         {
-            flash('Unfortunately we are at our team cap of 40. New Teams Cannot Be Registered');
+            flash('Unfortunately we are at our team cap of 56. New Teams Cannot Be Registered');
             return view('kos.reghome');
         }
         return view('kos.reghome');
@@ -53,9 +53,9 @@ class KosController extends Controller
     public function getRegTeam()
     {
         $team_count = KosTeam::count();
-        if($team_count >= 40)
+        if($team_count >= 56)
         {
-            flash('Unfortunately we are at our team cap of 40. New Teams Cannot Be Registered');
+            flash('Unfortunately we are at our team cap of 56. New Teams Cannot Be Registered');
             return view('kos.reghome');
         }
         return view('kos.regteam');
@@ -84,9 +84,9 @@ class KosController extends Controller
     {
         $team = $request->all();
         $team_count = KosTeam::count();
-        if($team_count >= 40)
+        if($team_count >= 56)
         {
-            flash('Unfortunately we are at our team cap of 40. New Teams Cannot Be Registered');
+            flash('Unfortunately we are at our team cap of 56. New Teams Cannot Be Registered');
             return view('kos.reghome');
         }
         if($team['team_pass1'] != $team['team_pass2'])

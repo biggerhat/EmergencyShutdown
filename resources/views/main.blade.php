@@ -33,7 +33,7 @@
 
       <footer class="footer">
         <div class="container navbar-default">
-          <p class="foot foot-nav"><a href="/about">About</a><a href="http://www.patreon.com/emergencyshutdown" target="neww">Donate</a><a href="https://twitter.com/emrgncyshutdown" target="_twitter">Twitter</a></p>
+          <p class="foot foot-nav"><a href="/about">About</a><a href="https://twitter.com/emrgncyshutdown" target="_twitter">Twitter</a></p>
         </div>
       </footer>
 

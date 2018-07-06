@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-    - King of Servers 2017 - Team List
+    - King of Servers - Team List
 @endsection
 
 @section('content')
